@@ -1,4 +1,4 @@
-//
+
 //  Goomba.cpp
 //  SuperMario
 //
@@ -9,16 +9,38 @@
 #include "Globle.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-Goomba::goomba()
+Goomba::Goomba()
 
 {
-    _goombaTexture.loadFromFile("../src/image/Goomba.png");
-    _goombaSprite.setTexture(_goombaTexture);
-    _goombaSprite.setPosition(600, 340);
-    _goombaSprite.setScale(sf::Vector2f(5,5));
-    _goombaPos = _goombaSprite.getPosition();
+    if( _goombaTexture.loadFromFile("../src/image/Goomba.png")){
+        _goombaSprite.setTexture(_goombaTexture);
+        _goombaSprite.setPosition(600, 0);
+        _goombaSprite.setScale(sf::Vector2f(2,2));
+        _goombaPos = _goombaSprite.getPosition();
+        _goombaBound = _goombaSprite.getGlobalBounds();
+    };
 };
 
-void Koopa::drawGoomba(sf::RenderWindow& window){
-    window.draw(_goombaSprite);
+void Goomba::drawGoomba(sf::RenderWindow& window){
+    // if isjumped  which = false:0 is not true then we draw the goombaSprite which will create its position, bound, etc
+    if(!_isJumped){
+        window.draw(_goombaSprite);
+    }
 };
+    
+void Goomba::UpdateGoomba(Map& map){
+    _goombaBound = _goombaSprite.getGlobalBounds();
+    // if the goomba boundary does NOT hit with the map bound, move the goombas y position to the ground by increasing it
+    if(!_goombaBound.intersects(map.mapBound)){
+        _goombaPos.y += 5.0f;
+    }
+    //Using the setPosition SFML function set/assign the goombaSprties position now that the boomba bound has hit the map texture
+    _goombaSprite.setPosition(_goombaPos);
+};
+
+void Goomba::JumpedOnTop(Mario& mario){
+        if ((mario._marioBound.top +mario._marioBound.height)<=_goombaBound.top &&  (mario._marioBound.left<=(_goombaBound.left+_goombaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_goombaBound.left) {
+            _isJumped = true;
+        }
+    };
+

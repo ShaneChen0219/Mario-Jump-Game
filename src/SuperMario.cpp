@@ -4,6 +4,7 @@
 #include "Globle.hpp"
 #include "Map.hpp"
 #include "Renderer.hpp"
+#include "Goomba.hpp"
 int main()
 {
     // create the window
@@ -15,6 +16,7 @@ int main()
     Map map;
     Mario mario;
     Koopa koopa;
+    Goomba goomba;
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -36,6 +38,9 @@ int main()
         koopa.drawKoopa(window);
         koopa.UpdateKoopa(map);
         koopa.JumpedOnTop(mario);
+        goomba.drawGoomba(window);
+        goomba.UpdateGoomba(map);
+        goomba.JumpedOnTop(mario);
         
 	// end the current frame
         window.display();

@@ -10,20 +10,25 @@
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
 #include "Globle.hpp"
-
+#include "Mario.hpp"
+#include "Map.hpp"
+class Map;
+class Mario;
 
 class Goomba{
 private:
     //standard sfml library
     sf :: Sprite _goombaSprite;
     sf :: Texture _goombaTexture;
-    float _goombaSpeed;
-    
+    float _goombaSpeed =2.0f;
+    bool _isJumped=0;
 public:
     Goomba();
     void drawGoomba(sf::RenderWindow& window);
-    //void UpdateGoomba(Map& map);
+    void UpdateGoomba(Map& map);
     sf::Vector2f _goombaPos{0.f, 0.f};
+    sf::FloatRect _goombaBound;
+    void JumpedOnTop(Mario& mario);
     
 };
 #endif /* Goomba_hpp */
