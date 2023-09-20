@@ -1,3 +1,0 @@
-/Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles/SuperMario.dir
-/Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles/edit_cache.dir
-/Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles/rebuild_cache.dir
