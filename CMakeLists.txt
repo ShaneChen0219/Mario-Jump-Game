@@ -25,7 +25,7 @@ cmake_minimum_required(VERSION 3.15)
 project(SuperMario)
 
 #the project contains an executable named testSFML that uses the following cpp files
-add_executable(SuperMario src/SuperMario.cpp src/Mario.cpp src/Mario.hpp src/Globle.hpp src/Map.cpp src/Map.hpp src/Renderer.cpp  src/Renderer.hpp)
+add_executable(SuperMario src/SuperMario.cpp src/Mario.cpp src/Mario.hpp src/Globle.hpp src/Map.cpp src/Map.hpp src/Renderer.cpp  src/Renderer.hpp src/Koopa.hpp src/Koopa.cpp)
 
 #create a folder named "cmake" at the top of your project and put the
 #findSFML.cmake file in it.  This line tells Cmake to look there for

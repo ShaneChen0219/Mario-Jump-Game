@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Mario.hpp"
+#include "Koopa.hpp"
 #include "Globle.hpp"
 #include "Map.hpp"
 #include "Renderer.hpp"
@@ -13,6 +14,7 @@ int main()
     Renderer renderer(window);
     Map map;
     Mario mario;
+    Koopa koopa;
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -30,6 +32,7 @@ int main()
         mario.UpdateMario(map);
         map.drawMap(renderer);
         mario.drawMario(window);
+        koopa.drawKoopa(window);
         
 	// end the current frame
         window.display();
