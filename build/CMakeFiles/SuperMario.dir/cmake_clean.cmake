@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SuperMario.dir/src/Koopa.cpp.o"
+  "CMakeFiles/SuperMario.dir/src/Koopa.cpp.o.d"
   "CMakeFiles/SuperMario.dir/src/Map.cpp.o"
   "CMakeFiles/SuperMario.dir/src/Map.cpp.o.d"
   "CMakeFiles/SuperMario.dir/src/Mario.cpp.o"

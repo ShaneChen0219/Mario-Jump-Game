@@ -15,7 +15,7 @@ class Mario{
 private:
     sf::Sprite _marioSprite;
     sf::Texture _marioTexture;
-    float _marioSpeed =5.0f;
+    float _marioSpeed =1.0f;
     float _marioJumpHeight = 100.0f;
     float _marioFallSpeed = 5.0f;
     

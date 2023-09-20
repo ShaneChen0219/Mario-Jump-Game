@@ -29,10 +29,13 @@ int main()
         deltaTime = deltaTimeClock.restart();
         
         window.clear(sf::Color::White);
+    
         mario.UpdateMario(map);
         map.drawMap(renderer);
         mario.drawMario(window);
         koopa.drawKoopa(window);
+        koopa.UpdateKoopa(map);
+        koopa.JumpedOnTop(mario);
         
 	// end the current frame
         window.display();

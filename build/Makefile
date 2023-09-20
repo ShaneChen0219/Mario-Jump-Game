@@ -129,6 +129,30 @@ SuperMario/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/build
 .PHONY : SuperMario/fast
 
+src/Koopa.o: src/Koopa.cpp.o
+.PHONY : src/Koopa.o
+
+# target to build an object file
+src/Koopa.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/src/Koopa.cpp.o
+.PHONY : src/Koopa.cpp.o
+
+src/Koopa.i: src/Koopa.cpp.i
+.PHONY : src/Koopa.i
+
+# target to preprocess a source file
+src/Koopa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/src/Koopa.cpp.i
+.PHONY : src/Koopa.cpp.i
+
+src/Koopa.s: src/Koopa.cpp.s
+.PHONY : src/Koopa.s
+
+# target to generate assembly for a file
+src/Koopa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/src/Koopa.cpp.s
+.PHONY : src/Koopa.cpp.s
+
 src/Map.o: src/Map.cpp.o
 .PHONY : src/Map.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SuperMario"
+	@echo "... src/Koopa.o"
+	@echo "... src/Koopa.i"
+	@echo "... src/Koopa.s"
 	@echo "... src/Map.o"
 	@echo "... src/Map.i"
 	@echo "... src/Map.s"

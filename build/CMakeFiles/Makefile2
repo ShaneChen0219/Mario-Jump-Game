@@ -81,12 +81,12 @@ clean: CMakeFiles/SuperMario.dir/clean
 CMakeFiles/SuperMario.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target SuperMario"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SuperMario"
 .PHONY : CMakeFiles/SuperMario.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SuperMario.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SuperMario.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/shanechen/Desktop/MSD/project/CS6010Final/build/CMakeFiles 0
 .PHONY : CMakeFiles/SuperMario.dir/rule

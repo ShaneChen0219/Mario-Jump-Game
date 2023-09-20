@@ -1,7 +1,0 @@
-Target dependency graph (3 targets)
-ZERO_CHECK in SuperMario, no dependencies
-SuperMario in SuperMario, depends on:
-ZERO_CHECK in SuperMario (explicit)
-ALL_BUILD in SuperMario, depends on:
-SuperMario in SuperMario (explicit)
-ZERO_CHECK in SuperMario (explicit)

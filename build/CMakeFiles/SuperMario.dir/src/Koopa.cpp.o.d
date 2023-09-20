@@ -1,5 +1,6 @@
-CMakeFiles/SuperMario.dir/src/SuperMario.cpp.o: \
-  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/SuperMario.cpp \
+CMakeFiles/SuperMario.dir/src/Koopa.cpp.o: \
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Koopa.cpp \
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Koopa.hpp \
   /opt/homebrew/include/SFML/Graphics.hpp \
   /opt/homebrew/include/SFML/Window.hpp \
   /opt/homebrew/include/SFML/System.hpp \
@@ -808,8 +809,9 @@ CMakeFiles/SuperMario.dir/src/SuperMario.cpp.o: \
   /opt/homebrew/include/SFML/Graphics/Sprite.hpp \
   /opt/homebrew/include/SFML/Graphics/Text.hpp \
   /opt/homebrew/include/SFML/Graphics/VertexBuffer.hpp \
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Globle.hpp \
   /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Mario.hpp \
   /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Map.hpp \
-  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Globle.hpp \
   /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Renderer.hpp \
-  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Koopa.hpp
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/istream
