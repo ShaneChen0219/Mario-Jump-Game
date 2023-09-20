@@ -25,8 +25,9 @@ int main()
                 window.close();
         }
         deltaTime = deltaTimeClock.restart();
-        mario.UpdateMario();
+        
         window.clear(sf::Color::White);
+        mario.UpdateMario(map);
         map.drawMap(renderer);
         mario.drawMario(window);
         

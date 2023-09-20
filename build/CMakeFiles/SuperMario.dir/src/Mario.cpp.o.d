@@ -809,4 +809,8 @@ CMakeFiles/SuperMario.dir/src/Mario.cpp.o: \
   /opt/homebrew/include/SFML/Graphics/Sprite.hpp \
   /opt/homebrew/include/SFML/Graphics/Text.hpp \
   /opt/homebrew/include/SFML/Graphics/VertexBuffer.hpp \
-  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Globle.hpp
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Map.hpp \
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Globle.hpp \
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Renderer.hpp \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/istream

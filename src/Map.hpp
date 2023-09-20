@@ -21,6 +21,7 @@ public:
     sf::Texture mapTexture;
     //
     int offset=0;
+    sf::FloatRect mapBound;
     //Creating our Map constructor for our class
     Map();
     

@@ -8,45 +8,42 @@
 #include "Mario.hpp"
 #include "Globle.hpp"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 Mario::Mario()
 {
     _marioTexture.loadFromFile("../src/image/Mario.png");
     _marioSprite.setTexture(_marioTexture);
-    _marioSprite.setPosition(10, 390);
+    _marioSprite.setPosition(30, 200);
     _marioSprite.setScale(sf::Vector2f(3,3));
     _marioPos = _marioSprite.getPosition();
+    _marioBound =_marioSprite.getGlobalBounds();
 };
 
 void Mario::drawMario(sf::RenderWindow& window){
     window.draw(_marioSprite);
 };
 
-void Mario::UpdateMario(){
-    bool jumpOrNot = false;
-    if ((_marioPos.x>0 or _marioPos.x <screenWidth) and _marioPos.y<screenHeight) {
+void Mario::UpdateMario(Map& map){
+    _marioBound =_marioSprite.getGlobalBounds();
+    if(_marioPos.x>20){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             _marioPos.x -= _marioSpeed;
         }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+    }
+    if(_marioPos.x<850){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             _marioPos.x += _marioSpeed;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-            if (jumpOrNot) {
-                while (_marioPos.y != 390) {
-                    _marioPos.y += _marioJumpHeight;
-                }
-                jumpOrNot = false;
-            }else{
+    }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+            if (_marioBound.intersects(map.mapBound)) {
                 _marioPos.y -= _marioJumpHeight;
-                jumpOrNot = true;
             }
-        }else{
-            if(_marioPos.y<390){
-                _marioPos.y = 390;
-                jumpOrNot = false;
+        }
+        else{
+            if(!_marioBound.intersects(map.mapBound)) {
+                _marioPos.y += _marioJumpHeight;
             }
         }
         _marioSprite.setPosition(_marioPos);
-    }
-    
 };
