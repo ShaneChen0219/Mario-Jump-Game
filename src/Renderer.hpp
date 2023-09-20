@@ -14,8 +14,10 @@ class Renderer{
 public:
     Renderer(sf::RenderTarget& target);
     //Texture is a image store on GPU
+    //Member function
     void Draw(const sf::Texture& texture, const sf::Vector2f& position,const sf::Vector2f& size);
 private:
+    //sprite is declared as an instance of sf::Sprite- it will be used to render textures , because it is intitialized with {} it will use the default constructor  being constructered with no specific parameters and only really being initialized
     sf::Sprite sprite{};
     sf::RenderTarget& target;
 };
