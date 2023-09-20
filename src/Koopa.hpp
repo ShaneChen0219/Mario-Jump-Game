@@ -28,6 +28,7 @@ public:
     sf::Vector2f _koopaPos{0.f, 0.f};
     sf::FloatRect _koopaBound;
     void JumpedOnTop(Mario& mario);
+    void Move();
 };
     
     

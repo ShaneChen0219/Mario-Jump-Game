@@ -812,4 +812,5 @@ CMakeFiles/SuperMario.dir/src/SuperMario.cpp.o: \
   /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Map.hpp \
   /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Globle.hpp \
   /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Renderer.hpp \
-  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Koopa.hpp
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Koopa.hpp \
+  /Users/shanechen/Desktop/MSD/project/CS6010Final/src/Goomba.hpp

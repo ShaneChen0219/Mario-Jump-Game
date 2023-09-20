@@ -129,6 +129,30 @@ SuperMario/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/build
 .PHONY : SuperMario/fast
 
+src/Goomba.o: src/Goomba.cpp.o
+.PHONY : src/Goomba.o
+
+# target to build an object file
+src/Goomba.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/src/Goomba.cpp.o
+.PHONY : src/Goomba.cpp.o
+
+src/Goomba.i: src/Goomba.cpp.i
+.PHONY : src/Goomba.i
+
+# target to preprocess a source file
+src/Goomba.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/src/Goomba.cpp.i
+.PHONY : src/Goomba.cpp.i
+
+src/Goomba.s: src/Goomba.cpp.s
+.PHONY : src/Goomba.s
+
+# target to generate assembly for a file
+src/Goomba.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperMario.dir/build.make CMakeFiles/SuperMario.dir/src/Goomba.cpp.s
+.PHONY : src/Goomba.cpp.s
+
 src/Koopa.o: src/Koopa.cpp.o
 .PHONY : src/Koopa.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SuperMario"
+	@echo "... src/Goomba.o"
+	@echo "... src/Goomba.i"
+	@echo "... src/Goomba.s"
 	@echo "... src/Koopa.o"
 	@echo "... src/Koopa.i"
 	@echo "... src/Koopa.s"

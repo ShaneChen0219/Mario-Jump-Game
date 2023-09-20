@@ -39,6 +39,7 @@
 		BDC017627B9340BC8DA6CD0A /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C872309505CA49BCA0D1CD32 /* Map.cpp */; };
 		C0873B87F74A4C739DB6AD6D /* SuperMario.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 319D3B6A08B342298AEFF74E /* SuperMario.cpp */; };
 		DC66DCB32ABB95E700E6086C /* Koopa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC66DCB12ABB95E700E6086C /* Koopa.cpp */; };
+		DC66DCB62ABBB4C800E6086C /* Goomba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC66DCB52ABBB4C800E6086C /* Goomba.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		C872309505CA49BCA0D1CD32 /* Map.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Map.cpp; path = src/Map.cpp; sourceTree = SOURCE_ROOT; };
 		DC66DCB12ABB95E700E6086C /* Koopa.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Koopa.cpp; path = src/Koopa.cpp; sourceTree = "<group>"; };
 		DC66DCB22ABB95E700E6086C /* Koopa.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Koopa.hpp; path = src/Koopa.hpp; sourceTree = "<group>"; };
+		DC66DCB42ABBB4C800E6086C /* Goomba.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Goomba.hpp; path = src/Goomba.hpp; sourceTree = "<group>"; };
+		DC66DCB52ABBB4C800E6086C /* Goomba.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Goomba.cpp; path = src/Goomba.cpp; sourceTree = "<group>"; };
 		F14EA4917BA0495AA03EF839 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -107,6 +110,7 @@
 				24D0D2D884224A89AAA62A6B /* Mario.cpp */,
 				198E9362D9794685A48724D3 /* Renderer.cpp */,
 				319D3B6A08B342298AEFF74E /* SuperMario.cpp */,
+				DC66DCB52ABBB4C800E6086C /* Goomba.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -158,6 +162,7 @@
 		FB61E287732C4A39819CA5D2 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC66DCB42ABBB4C800E6086C /* Goomba.hpp */,
 				DC66DCB22ABB95E700E6086C /* Koopa.hpp */,
 				91CE66617C444DAFBC6E18F9 /* Globle.hpp */,
 				49C34731EE0046C7ADEBE867 /* Map.hpp */,
@@ -258,6 +263,7 @@
 			files = (
 				BDC017627B9340BC8DA6CD0A /* Map.cpp in Sources */,
 				DC66DCB32ABB95E700E6086C /* Koopa.cpp in Sources */,
+				DC66DCB62ABBB4C800E6086C /* Goomba.cpp in Sources */,
 				7267D711B58041EB8BFF4566 /* Mario.cpp in Sources */,
 				7B5A0ABC0CDA4F03A41DACFE /* Renderer.cpp in Sources */,
 				C0873B87F74A4C739DB6AD6D /* SuperMario.cpp in Sources */,

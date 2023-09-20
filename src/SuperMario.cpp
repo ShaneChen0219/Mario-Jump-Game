@@ -8,6 +8,7 @@
 int main()
 {
     // create the window
+    
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Super Mario");
     sf::Event event;
     sf::Time deltaTime;

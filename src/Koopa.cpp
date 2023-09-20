@@ -14,9 +14,7 @@ Koopa::Koopa()
 {
     
     if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
-        
         _koopaSprite.setTexture(_koopaTexture);
-        
         _koopaSprite.setPosition(500, 0);
         _koopaSprite.setScale(sf::Vector2f(3,3));
         _koopaPos = _koopaSprite.getPosition();
@@ -44,4 +42,7 @@ void Koopa::JumpedOnTop(Mario& mario){
     if ((mario._marioBound.top +mario._marioBound.height)<=_koopaBound.top &&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
         _isJumped = true;
     }
+};
+void Move(){
+    
 };
