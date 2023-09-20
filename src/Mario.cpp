@@ -22,12 +22,31 @@ void Mario::drawMario(sf::RenderWindow& window){
 };
 
 void Mario::UpdateMario(){
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        _marioPos.x -= _marioSpeed;
+    bool jumpOrNot = false;
+    if ((_marioPos.x>0 or _marioPos.x <screenWidth) and _marioPos.y<screenHeight) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+            _marioPos.x -= _marioSpeed;
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            _marioPos.x += _marioSpeed;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+            if (jumpOrNot) {
+                while (_marioPos.y != 390) {
+                    _marioPos.y += _marioJumpHeight;
+                }
+                jumpOrNot = false;
+            }else{
+                _marioPos.y -= _marioJumpHeight;
+                jumpOrNot = true;
+            }
+        }else{
+            if(_marioPos.y<390){
+                _marioPos.y = 390;
+                jumpOrNot = false;
+            }
+        }
+        _marioSprite.setPosition(_marioPos);
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        _marioPos.x += _marioSpeed;
-    }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-//        marioPos.y +=
-    }
+    
 };

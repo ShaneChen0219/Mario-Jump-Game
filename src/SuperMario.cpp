@@ -25,10 +25,11 @@ int main()
                 window.close();
         }
         deltaTime = deltaTimeClock.restart();
+        mario.UpdateMario();
         window.clear(sf::Color::White);
         map.drawMap(renderer);
         mario.drawMario(window);
-        mario.UpdateMario();
+        
 	// end the current frame
         window.display();
     }
