@@ -12,6 +12,7 @@ int main()
     sf::Clock deltaTimeClock;
     Renderer renderer(window);
     Map map;
+    Mario mario;
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -26,6 +27,8 @@ int main()
         deltaTime = deltaTimeClock.restart();
         window.clear(sf::Color::White);
         map.drawMap(renderer);
+        mario.drawMario(window);
+        mario.UpdateMario();
 	// end the current frame
         window.display();
     }

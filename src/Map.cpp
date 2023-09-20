@@ -20,7 +20,6 @@ mapSprite(),mapTexture()
         mapSprite.setScale(5, 10);
         mapSprite.setPosition(sf::Vector2f(0,350));
     }
-    
 };
 void Map::updateMap(){
     if(offset > mapTexture.getSize().x - screenWidth){

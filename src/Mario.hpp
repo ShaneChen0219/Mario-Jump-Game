@@ -12,21 +12,16 @@
 
 class Mario{
 private:
-    sf::Sprite marioSprite;
-    sf::Texture marioTexture;
+    sf::Sprite _marioSprite;
+    sf::Texture _marioTexture;
     float _marioSpeed =5.0f;
     float _marioJumpHeight = 5.0f;
+    float _marioFallSpeed = 5.0f;
 
 public:
     Mario();
     void drawMario(sf::RenderWindow& window);
     void UpdateMario();
-    
-    sf::Vector2f marioPos{0.f, 0.f};
-    sf::Vector2f marioMotion{0.f, 0.f};
-    sf::FloatRect marioBounds;
-    std::array<sf::IntRect, 6> frames;
-    sf::Time timeTracker;
-    int animationCounter = 0;
+    sf::Vector2f _marioPos{0.f, 0.f};
 };
 #endif /* Mario_hpp */

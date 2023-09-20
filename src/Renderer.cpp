@@ -26,6 +26,7 @@ void Renderer::Draw(const sf::Texture& texture, const sf::Vector2f& position,con
      the default is texture is larger than the size -> for getting more clear on the window(detail)
      That's why we need to decrease the size of texture to fit the sprite
      */
+    // size.x = to 60, 60 * pixel of size of imae (16x16) converts the texture
     sprite.setScale(sf::Vector2f(size.x/texture.getSize().x,size.y/texture.getSize().y));
     
     

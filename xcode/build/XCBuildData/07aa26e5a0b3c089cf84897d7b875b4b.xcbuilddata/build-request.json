@@ -6,13 +6,7 @@
   },
   "configuredTargets" : [
     {
-      "guid" : "69cb021e25c8cb2e11558cbd32c45a5d217b9313d7dc09144999beeaa3ab8475"
-    },
-    {
       "guid" : "69cb021e25c8cb2e11558cbd32c45a5d2ecb4389c918f1a7f10872e99fb97ed2"
-    },
-    {
-      "guid" : "69cb021e25c8cb2e11558cbd32c45a5d2384e2c682077fc933066d9dde027f62"
     }
   ],
   "containerPath" : "/Users/shanechen/Desktop/MSD/project/CS6010Final/xcode/SuperMario.xcodeproj",

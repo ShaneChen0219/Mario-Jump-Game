@@ -9,27 +9,24 @@
 #include "Globle.hpp"
 #include <SFML/Graphics.hpp>
 Mario::Mario()
-:timeTracker()
 {
-    marioTexture.loadFromFile("../src/image/Mario.png");
-    marioSprite.setTexture(marioTexture);
-    //???
-    for(int i = 0; i < frames.size(); i++){
-        frames[i] = sf::IntRect(i * 90, 0, 90, 95);
-    }
-    marioSprite.setTextureRect(frames[0]);
-    marioPos = marioSprite.getPosition();
+    _marioTexture.loadFromFile("../src/image/Mario.png");
+    _marioSprite.setTexture(_marioTexture);
+    _marioSprite.setPosition(10, 390);
+    _marioSprite.setScale(sf::Vector2f(3,3));
+    _marioPos = _marioSprite.getPosition();
 };
 
 void Mario::drawMario(sf::RenderWindow& window){
+    window.draw(_marioSprite);
 };
 
 void Mario::UpdateMario(){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        marioPos.x -= _marioSpeed;
+        _marioPos.x -= _marioSpeed;
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        marioPos.x += _marioSpeed;
+        _marioPos.x += _marioSpeed;
     }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
 //        marioPos.y +=
     }
