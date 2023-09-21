@@ -27,13 +27,13 @@ int main()
     Map map;
     Mario mario;
     //    Generate koopas
-    int pos = rand()%800 +40;
+    int pos = rand()%800 +100;
     float speed = rand()%5 +1;
-    int numOfKoopaAndGoomba =10;
+    int numOfKoopaAndGoomba =2;
     std::vector<Koopa> koopas;
     for(int i= 0; i<numOfKoopaAndGoomba;i++){
-        srand(i+speed);
-        pos = rand()%800 +40;
+        srand(i+speed+123456);
+        pos = rand()%800 +100;
         speed = (rand()% 5000 +1000)/1000;
         Koopa koopa_obj(pos,speed);
         koopas.push_back(koopa_obj);
@@ -42,8 +42,8 @@ int main()
     Koopa any;
     std::vector<Goomba> goombas;
     for(int i= 0; i<numOfKoopaAndGoomba;i++){
-        srand(i+speed);
-        pos = rand()%800 +40;
+        srand(i+speed+123456);
+        pos = rand()%800 +100;
         speed = (rand()% 5000 +1000)/1000;
         Goomba goombas_obj(pos,speed);
         goombas.push_back(goombas_obj);
@@ -51,25 +51,6 @@ int main()
     }
     //only for making the image right
     Goomba any2;
-    
-    //    pos = rand()%800 +40;
-    //    speed = rand()%5 +1;
-    //    Koopa koopa(pos,speed);
-    //    pos = rand()%800 +40;
-    //    speed = rand()%5 +1;
-    // Koopa koopaiijkjkhkhjh(pos,speed);
-    //    pos = rand()%800 +40;
-    //    speed = rand()%5 +1;
-    //    Koopa koopa2(pos,speed);
-    
-    //    std::vector<Koopa> koopas = {koopa[0],koopa[1]};
-    //    pos = rand()%800 +40;
-    //    Goomba goomba(pos);
-    //    pos = rand()%800 +40;
-    //    Goomba goomba1(pos);
-    //    pos = rand()%800 +40;
-    //    Goomba goomba2(pos);
-    //    std::vector<Goomba> goombas = {goomba,goomba1,goomba2};
     GameOver gameover;
     Score score;
     int timesRumming =0;
@@ -96,7 +77,6 @@ int main()
             for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
                 koopas[i].drawKoopa(window);
                 koopas[i].Move(map);
-//                koopas[i].JumpedOnTop(mario);
                 goombas[i].drawGoomba(window);
                 goombas[i].Move(map);
             }
@@ -111,7 +91,7 @@ int main()
             }
             for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
                 score.update(koopas[i],goombas[i],mario);
-//                mario.GameOver(goombas[i],koopas[i]);
+                mario.GameOver(goombas[i],koopas[i]);
             }
             score.drawScores(window);
             timesRumming++;
