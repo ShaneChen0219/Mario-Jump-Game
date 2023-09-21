@@ -37,9 +37,7 @@ Koopa::Koopa(int pos)
 
 Koopa::Koopa(int pos,int speedTime)
 {
-    std::cout<<"access\n";
     if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
-        std::cout<<"access file\n";
         _koopaSprite.setTexture(_koopaTexture);
         _koopaSprite.setPosition(pos, 0);
         _koopaSprite.setScale(sf::Vector2f(3,3));
