@@ -13,6 +13,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <vector>
+#include "GameClock.hpp"
 
 int main()
 {
@@ -26,6 +27,8 @@ int main()
     Renderer renderer(window);
     Map map;
     Mario mario;
+    GameClock gameclock;
+    
     //    Generate koopas
     int pos = rand()%800 +100;
     float speed = rand()%5 +1;
@@ -73,6 +76,8 @@ int main()
             map.drawMap(renderer);
             mario.UpdateMario(map);
             mario.drawMario(window);
+            gameclock.drawClock(window);
+            gameclock.update();
             
             for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
                 koopas[i].drawKoopa(window);
