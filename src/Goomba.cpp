@@ -46,11 +46,30 @@ Goomba::Goomba(int pos, int speedTime)
     };
 };
 
-void Goomba::drawGoomba(sf::RenderWindow& window){
-    // if isjumped  which = false:0 is not true then we draw the goombaSprite which will create its position, bound, etc
-    if(_isJumped != true){
+void Goomba::drawGoomba(sf::RenderWindow& window) {
+    if (_isJumped != true) {
         window.draw(_goombaSprite);
+    } else {
+        if (_goombaTexture.loadFromFile("../src/image/DeadGoomba.png")) {
+            _goombaSprite.setTexture(_goombaTexture);
+            window.draw(_goombaSprite);
+
+            // Create a timer using sf::Clock
+            static sf::Clock timer;
+            sf::Time elapsedTime = timer.getElapsedTime();
+            
+            if (elapsedTime.asSeconds() >= 0.2f) { // 2 seconds in this example
+                // Reset the Goomba and load the default texture
+                reset();
+                if (_goombaTexture.loadFromFile("../src/image/Goomba.png")) {
+                    _goombaSprite.setTexture(_goombaTexture);
+                }
+                timer.restart();
+            }
+        }
     }
+    
+    
 };
     
 
@@ -75,7 +94,7 @@ void Goomba::Move(Map& map){
             }
         }
     }else{
-        _goombaPos.y += 5.0f;
+        _goombaPos.y += 0.75f;
     }
     _goombaSprite.setPosition(_goombaPos);
 };
