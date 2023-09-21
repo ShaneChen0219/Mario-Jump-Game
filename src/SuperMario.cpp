@@ -10,6 +10,7 @@
 #include <random>
 #include <time.h>
 #include <stdlib.h>
+#include <vector>
 
 int main()
 {
@@ -32,12 +33,15 @@ int main()
     Koopa koopa1(pos);
     pos = rand()%800 +30;
     Koopa koopa2(pos);
+    std::vector<Koopa> koopas = {koopa,koopa1,koopa2};
     
     Goomba goomba;
     
     JumpStage jumpstage;
     JumpStage jumpstage1(sf::Vector2f{200,150});
     JumpStage jumpstage2(sf::Vector2f{250,200});
+    std::vector<JumpStage> allJumpStage={jumpstage,jumpstage1,jumpstage2};
+    
     // run the program as long as the window is open
     while (window.isOpen())
     {

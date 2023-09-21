@@ -18,7 +18,8 @@ private:
     float _marioSpeed =1.0f;
     float _marioJumpHeight = 100.0f;
     float _marioFallSpeed = 5.0f;
-
+    bool _isalive= true;
+    
 
 public:
     Mario();
@@ -26,7 +27,6 @@ public:
     void UpdateMario(Map& map);
     sf::Vector2f _marioPos{0.f, 0.f};
     sf::FloatRect _marioBound;
-    
     void StartJump();
 };
 #endif /* Mario_hpp */

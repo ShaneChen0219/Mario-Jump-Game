@@ -21,7 +21,10 @@ Mario::Mario()
 };
 
 void Mario::drawMario(sf::RenderWindow& window){
-    window.draw(_marioSprite);
+    if (_isalive) {
+        window.draw(_marioSprite);
+    }
+    
 };
 
 void Mario::UpdateMario(Map& map){
