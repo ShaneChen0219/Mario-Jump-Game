@@ -51,19 +51,35 @@ Koopa::Koopa(int pos,int speedTime)
 void Koopa::drawKoopa(sf::RenderWindow& window){
     if(_isJumped != true){
         window.draw(_koopaSprite);
+        
+        
+    }
+    else{
+        if(_koopaTexture.loadFromFile("../src/image/DeadKoopa.png")){
+            _koopaSprite.setTexture(_koopaTexture);
+            window.draw(_koopaSprite);
+            for(int i =0; i<1000; i++){
+                if(i==999){
+                    reset();
+                }
+            }
+        }
+        
     }
 };
 
 
 void Koopa::JumpedOnTop(Mario& mario){
     //(mario._marioBound.top +mario._marioBound.height)>=_koopaBound.top
-//    if ( _koopaBound.intersects(mario._marioBound)&&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
-//        _isJumped = true;
-//    }
+    //    if ( _koopaBound.intersects(mario._marioBound)&&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
+    //        _isJumped = true;
+    //    }
 };
 void Koopa::Move(Map& map){
     _koopaBound = _koopaSprite.getGlobalBounds();
     if (_koopaBound.intersects(map.mapBound)) {
+        if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
+            _koopaSprite.setTexture(_koopaTexture);}
         if (_koopaPos.x<screenWidth-100 and _return == false) {
             _return = false;
             _koopaPos.x+= _koopaSpeed;
@@ -90,6 +106,7 @@ void Koopa::reset(){
         }else{
             pos =_koopaPos.x;
         }
+
         _koopaSprite.setPosition(sf::Vector2f(pos, 0));
         _koopaPos = _koopaSprite.getPosition();
         _isJumped = 0;
