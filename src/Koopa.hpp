@@ -20,18 +20,21 @@ private:
     //standard sfml library
     sf::Sprite _koopaSprite;
     sf::Texture _koopaTexture;
-    bool _isJumped=0;
+    
     bool _return = 0;
-    float _koopaSpeed =2.0f;
+    float _koopaSpeed =0.1f;
 public:
     Koopa();
     Koopa(int pos);
+    Koopa(int pos, int speedTime);
     void drawKoopa(sf::RenderWindow& window);
     void UpdateKoopa(Map& map);
     sf::Vector2f _koopaPos{0.f, 0.f};
     sf::FloatRect _koopaBound;
     void JumpedOnTop(Mario& mario);
     void Move(Map& map);
+    bool _isJumped=0;
+    void reset();
 };
     
     

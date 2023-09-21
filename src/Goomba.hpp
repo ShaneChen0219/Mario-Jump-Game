@@ -21,15 +21,19 @@ private:
     sf :: Sprite _goombaSprite;
     sf :: Texture _goombaTexture;
     float _goombaSpeed =2.0f;
-    bool _isJumped=0;
+    
     bool _return = 0;
 public:
     Goomba();
+    Goomba(int pos);
+    Goomba(int pos,int speedTime);
     void drawGoomba(sf::RenderWindow& window);
     void UpdateGoomba(Map& map);
     sf::Vector2f _goombaPos{0.f, 0.f};
     sf::FloatRect _goombaBound;
     void JumpedOnTop(Mario& mario);
     void Move(Map& map);
+    bool _isJumped=0;
+    void reset();
 };
 #endif /* Goomba_hpp */

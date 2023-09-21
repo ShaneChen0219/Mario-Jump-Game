@@ -21,11 +21,23 @@ Goomba::Goomba()
     };
 };
 
+Goomba::Goomba(int pos)
+
+{
+    if( _goombaTexture.loadFromFile("../src/image/Goomba.png")){
+        _goombaSprite.setTexture(_goombaTexture);
+        _goombaSprite.setPosition(pos, 0);
+        _goombaSprite.setScale(sf::Vector2f(2,2));
+        _goombaPos = _goombaSprite.getPosition();
+        _goombaBound = _goombaSprite.getGlobalBounds();
+    };
+};
+
 void Goomba::drawGoomba(sf::RenderWindow& window){
     // if isjumped  which = false:0 is not true then we draw the goombaSprite which will create its position, bound, etc
-    if(!_isJumped){
+//    if(!_isJumped){
         window.draw(_goombaSprite);
-    }
+//    }
 };
     
 void Goomba::UpdateGoomba(Map& map){
@@ -39,7 +51,8 @@ void Goomba::UpdateGoomba(Map& map){
 };
 
 void Goomba::JumpedOnTop(Mario& mario){
-        if ((mario._marioBound.top +mario._marioBound.height)<=_goombaBound.top &&  (mario._marioBound.left<=(_goombaBound.left+_goombaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_goombaBound.left) {
+    //&& (mario._marioBound.left<=(_goombaBound.left+_goombaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_goombaBound.left
+        if (_goombaBound.intersects(mario._marioBound)&&((mario._marioBound.top+mario._marioBound.height)>=_goombaBound.top)) {
             _isJumped = true;
         }
     };
@@ -57,7 +70,14 @@ void Goomba::Move(Map& map){
                 _goombaPos.x -=0.5f;
             }
         }
-        
     }
     _goombaSprite.setPosition(_goombaPos);
+};
+
+void Goomba::reset(){
+    if (_isJumped ==1) {
+        _goombaSprite.setPosition(_goombaPos.x+300, 0);
+        _isJumped = 0;
+    }
+
 };

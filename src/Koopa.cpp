@@ -23,7 +23,6 @@ Koopa::Koopa()
 };
 
 Koopa::Koopa(int pos)
-
 {
     
     if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
@@ -35,6 +34,20 @@ Koopa::Koopa(int pos)
         
     };
 };
+
+Koopa::Koopa(int pos,int speedTime)
+{
+    
+    if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
+        _koopaSprite.setTexture(_koopaTexture);
+        _koopaSprite.setPosition(pos, 0);
+        _koopaSprite.setScale(sf::Vector2f(3,3));
+        _koopaPos = _koopaSprite.getPosition();
+        _koopaBound = _koopaSprite.getGlobalBounds();
+        _koopaSpeed *=speedTime;
+    };
+};
+
 
 void Koopa::drawKoopa(sf::RenderWindow& window){
 //    std::cout<<_koopaSprite.getGlobalBounds().left<<"\n";
@@ -53,7 +66,7 @@ void Koopa::UpdateKoopa(Map& map){
 };
 
 void Koopa::JumpedOnTop(Mario& mario){
-    if ((mario._marioBound.top +mario._marioBound.height)<=_koopaBound.top &&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
+    if ((mario._marioBound.top +mario._marioBound.height)>=_koopaBound.top &&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
         _isJumped = true;
     }
 };
@@ -61,19 +74,25 @@ void Koopa::Move(Map& map){
     if (_koopaBound.intersects(map.mapBound)) {
         if (_koopaPos.x<screenWidth-100 and _return == false) {
             _return = false;
-            _koopaPos.x+= 0.25f;
+            _koopaPos.x+= _koopaSpeed;
         }else{
             _return =true;
-            _koopaPos.x-= 0.25f;
+            _koopaPos.x-= _koopaSpeed;
             if (_koopaPos.x==30 and _return == true) {
                 _return = false;
-                _koopaPos.x+= 0.25f;
+                _koopaPos.x+= _koopaSpeed;
             }
         }
-
+        _koopaSprite.setPosition(_koopaPos);
         
     }
     _koopaSprite.setPosition(_koopaPos);
 };
 
 
+void Koopa::reset(){
+    if(_isJumped==1){
+        _koopaSprite.setPosition(_koopaPos.x+50, 0);
+        _isJumped = 0;
+    }
+};

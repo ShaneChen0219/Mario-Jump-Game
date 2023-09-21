@@ -13,7 +13,7 @@ Mario::Mario()
 {
     _marioTexture.loadFromFile("../src/image/Mario.png");
     _marioSprite.setTexture(_marioTexture);
-    _marioSprite.setPosition(30, 200);
+    _marioSprite.setPosition(10, 200);
     _marioSprite.setScale(sf::Vector2f(3,3));
     _marioPos = _marioSprite.getPosition();
     _marioBound =_marioSprite.getGlobalBounds();
@@ -26,42 +26,40 @@ void Mario::drawMario(sf::RenderWindow& window){
     
 };
 
-void Mario::UpdateMario(Map& map,std::vector<JumpStage> jumpstages){
+void Mario::UpdateMario(Map& map){
     _marioBound =_marioSprite.getGlobalBounds();
     if(_marioPos.x>20){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             _marioPos.x -= _marioSpeed;
         }
     }
+    
     if(_marioPos.x<850){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            _marioPos.x += _marioSpeed;
+                _marioPos.x += _marioSpeed;
         }
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+    
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&&_marioBound.intersects(map.mapBound)){
+        _marioPos.y -= _marioJumpHeight;
         //Jump from Ground
         if (_marioBound.intersects(map.mapBound)) {
             _marioPos.y -= _marioJumpHeight;
         }
-        //Jump from stage
-//        for(JumpStage jumpstage:jumpstages){
-//            if (_marioBound.intersects(jumpstage._jumpStageBound)) {
-//                _marioPos.y -= _marioJumpHeight;
-//            }
-//        }
-        
     }
-    else{
-        if(!_marioBound.intersects(map.mapBound)) {
-            
-            _marioPos.y += _marioJumpHeight;
-//            for(JumpStage jumpstage:jumpstages){
-//                if (_marioBound.intersects(jumpstage._jumpStageBound)) {
-//                    _marioPos.y = jumpstage._jumpStagePos.y;
-//                }
-//            }
-        }
-        
+    
+    if(!_marioBound.intersects(map.mapBound)) {
+        _marioPos.y += _marioFallSpeed;
     }
+       
     _marioSprite.setPosition(_marioPos);
+};
+
+void Mario::GameOver(Goomba goombas,Koopa koopas){
+    if(_marioBound.intersects(goombas._goombaBound)&&goombas._isJumped==0){
+        _isalive =false;
+    }
+    if(_marioBound.intersects(koopas._koopaBound)&&koopas._isJumped==0){
+        _isalive =false;
+    }
 };
