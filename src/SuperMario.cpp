@@ -57,7 +57,7 @@ int main()
         
         window.clear(sf::Color::White);
         
-        mario.UpdateMario(map,koopas,allJumpStage);
+        mario.UpdateMario(map,allJumpStage);
         map.drawMap(renderer);
         mario.drawMario(window);
         
