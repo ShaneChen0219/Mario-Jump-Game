@@ -34,9 +34,16 @@ void Score::update(Koopa& koopa, Goomba& goomba, Mario mario)
     float goombaMid = (goomba._goombaBound.left+goomba._goombaBound.width/2);
     float goombaTop = goomba._goombaBound.top;
     float goombaBottom = (goomba._goombaBound.top + goomba._goombaBound.height);
+    float koopaLeft = koopa._koopaBound.left;
+    float koopaRight = (koopaLeft+koopa._koopaBound.width);
+    float koopaMid =(koopaLeft+koopa._koopaBound.width/2);
+    float koopaTop = koopa._koopaBound.top;
+    float koopaBottom = (koopaTop+koopa._koopaBound.height);
+    
+    
     if(marioLeft>=goombaMid){
         if (marioLeft<goombaRight&& marioRight<(goombaRight+marioRight)){
-            if((mario._marioBound.top+mario._marioBound.height)<=goomba._goombaBound.top){
+            if(marioBottom<=goombaTop && marioBottom>goombaTop-10){
                 
                 if(goomba._isJumped ==false){
                     scores +=1;
@@ -46,12 +53,38 @@ void Score::update(Koopa& koopa, Goomba& goomba, Mario mario)
             }
             
         }
-    }else{
-        
+    }else if(marioRight>goombaLeft){
+        if(marioBottom<=goombaTop && marioBottom>goombaTop-10){
+            
+            if(goomba._isJumped ==false){
+                scores +=1;
+                scoresText.setString("Score: " + std::to_string(scores) );
+                goomba._isJumped=true;
+            }
+        }
     };
-    //        if (mario._marioBound.intersects(koopa._koopaBound)&&(mario._marioBound.top+mario._marioBound.height)>koopa._koopaBound.top&&koopa._isJumped==false){
-    //            scores +=1;
-    //            scoresText.setString("Score: " + std::to_string(scores));
-    //            koopa._isJumped = true;
-    //        };
+    
+    
+    if(marioLeft>=koopaMid){
+        if (marioLeft<koopaRight&& marioRight<(koopaRight+marioRight)){
+            if(marioBottom<=koopaTop && marioBottom>koopaTop-10){
+                
+                if(koopa._isJumped ==false){
+                    scores +=1;
+                    scoresText.setString("Score: " + std::to_string(scores) );
+                    koopa._isJumped=true;
+                }
+            }
+            
+        }
+    }else if(marioRight>koopaLeft){
+        if(marioBottom<=koopaTop && marioBottom>koopaTop-10){
+            
+            if(koopa._isJumped ==false){
+                scores +=1;
+                scoresText.setString("Score: " + std::to_string(scores) );
+                koopa._isJumped=true;
+            }
+        }
+    };
 }
