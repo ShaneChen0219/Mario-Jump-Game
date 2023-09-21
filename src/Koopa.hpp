@@ -18,18 +18,19 @@ class Mario;
 class Koopa{
 private:
     //standard sfml library
-    sf::Sprite _koopaSprite;
-    sf::Texture _koopaTexture;
+    
+    
     
     bool _return = 0;
     float _koopaSpeed =0.1f;
 public:
+    sf::Sprite _koopaSprite;
+    sf::Texture _koopaTexture;
     Koopa();
     Koopa(int pos);
     Koopa(int pos, int speedTime);
     void drawKoopa(sf::RenderWindow& window);
-    void UpdateKoopa(Map& map);
-    sf::Vector2f _koopaPos{0.f, 0.f};
+    sf::Vector2f _koopaPos;
     sf::FloatRect _koopaBound;
     void JumpedOnTop(Mario& mario);
     void Move(Map& map);

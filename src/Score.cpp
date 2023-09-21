@@ -24,16 +24,17 @@ Score::Score()
 void Score::drawScores(sf::RenderWindow& window){
   window.draw(scoresText);
 };
-void Score::update(Koopa koopa, Goomba goomba, bool _isalive)
+void Score::update(Koopa& koopa, Goomba& goomba, Mario mario)
     {
 
-        if (koopa._isJumped ==1){
+        if (mario._marioBound.intersects(goomba._goombaBound)&&(mario._marioBound.top+mario._marioBound.height)>goomba._goombaBound.top&&goomba._isJumped ==false){
             scores +=1;
-            std::cout<<scores;
             scoresText.setString("Score: " + std::to_string(scores) );
+            goomba._isJumped=true;
         };
-        if (goomba._isJumped ==1){
+        if (mario._marioBound.intersects(koopa._koopaBound)&&(mario._marioBound.top+mario._marioBound.height)>koopa._koopaBound.top&&koopa._isJumped==false){
             scores +=1;
             scoresText.setString("Score: " + std::to_string(scores));
+            koopa._isJumped = true;
         };
     }

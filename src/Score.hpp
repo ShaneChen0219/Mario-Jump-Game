@@ -24,7 +24,7 @@ public:
   short scores = 0;
   Score();
   void reset();
-  void update(Koopa koopa, Goomba goomba, bool _isalive);
+  void update(Koopa& koopa, Goomba& goomba, Mario mario);
   void drawScores(sf::RenderWindow& window);
 };
 #endif /* Score_hpp */

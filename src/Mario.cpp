@@ -20,9 +20,9 @@ Mario::Mario()
 };
 
 void Mario::drawMario(sf::RenderWindow& window){
-    if (_isalive) {
+//    if (_isalive) {
         window.draw(_marioSprite);
-    }
+//    }
     
 };
 

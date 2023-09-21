@@ -28,8 +28,7 @@ public:
     Goomba(int pos);
     Goomba(int pos,int speedTime);
     void drawGoomba(sf::RenderWindow& window);
-    void UpdateGoomba(Map& map);
-    sf::Vector2f _goombaPos{0.f, 0.f};
+    sf::Vector2f _goombaPos;
     sf::FloatRect _goombaBound;
     void JumpedOnTop(Mario& mario);
     void Move(Map& map);

@@ -11,7 +11,7 @@
 #include <iostream>
 Koopa::Koopa()
 {
-    
+    std::cout<<"access\n";
     if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
         _koopaSprite.setTexture(_koopaTexture);
         _koopaSprite.setPosition(800, 0);
@@ -37,8 +37,9 @@ Koopa::Koopa(int pos)
 
 Koopa::Koopa(int pos,int speedTime)
 {
-    
+    std::cout<<"access\n";
     if(_koopaTexture.loadFromFile("../src/image/Koopa.png")){
+        std::cout<<"access file\n";
         _koopaSprite.setTexture(_koopaTexture);
         _koopaSprite.setPosition(pos, 0);
         _koopaSprite.setScale(sf::Vector2f(3,3));
@@ -50,27 +51,20 @@ Koopa::Koopa(int pos,int speedTime)
 
 
 void Koopa::drawKoopa(sf::RenderWindow& window){
-//    std::cout<<_koopaSprite.getGlobalBounds().left<<"\n";
-    if(!_isJumped){
+    if(_isJumped != true){
         window.draw(_koopaSprite);
     }
 };
 
-void Koopa::UpdateKoopa(Map& map){
-    _koopaBound = _koopaSprite.getGlobalBounds();
-    
-    if(!_koopaBound.intersects(map.mapBound)){
-        _koopaPos.y += 5.0f;
-    }
-    _koopaSprite.setPosition(_koopaPos);
-};
 
 void Koopa::JumpedOnTop(Mario& mario){
-    if ((mario._marioBound.top +mario._marioBound.height)>=_koopaBound.top &&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
-        _isJumped = true;
-    }
+    //(mario._marioBound.top +mario._marioBound.height)>=_koopaBound.top
+//    if ( _koopaBound.intersects(mario._marioBound)&&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
+//        _isJumped = true;
+//    }
 };
 void Koopa::Move(Map& map){
+    _koopaBound = _koopaSprite.getGlobalBounds();
     if (_koopaBound.intersects(map.mapBound)) {
         if (_koopaPos.x<screenWidth-100 and _return == false) {
             _return = false;
@@ -78,13 +72,13 @@ void Koopa::Move(Map& map){
         }else{
             _return =true;
             _koopaPos.x-= _koopaSpeed;
-            if (_koopaPos.x==30 and _return == true) {
+            if (_koopaPos.x<=30 and _return == true) {
                 _return = false;
                 _koopaPos.x+= _koopaSpeed;
             }
         }
-        _koopaSprite.setPosition(_koopaPos);
-        
+    }else{
+        _koopaPos.y += 1.0f;
     }
     _koopaSprite.setPosition(_koopaPos);
 };
@@ -92,7 +86,14 @@ void Koopa::Move(Map& map){
 
 void Koopa::reset(){
     if(_isJumped==1){
-        _koopaSprite.setPosition(_koopaPos.x+50, 0);
+        int pos;
+        if (_koopaPos.x+70>700) {
+            pos = 400;
+        }else{
+            pos =_koopaPos.x;
+        }
+        _koopaSprite.setPosition(sf::Vector2f(pos, 0));
+        _koopaPos = _koopaSprite.getPosition();
         _isJumped = 0;
     }
 };
