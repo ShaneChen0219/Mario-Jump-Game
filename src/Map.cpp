@@ -18,6 +18,7 @@ mapSprite(),mapTexture()
 {
 //        mapSprite.setTexture(mapTexture);
         mapSprite.setPosition(sf::Vector2f(0,440));
+    
         mapSprite.setTextureRect(sf::IntRect(0,0,screenWidth,100));
         mapBound = mapSprite.getGlobalBounds();
         mapSprite.setScale(5, 10);

@@ -13,6 +13,7 @@ Mario::Mario()
 {
     _marioTexture.loadFromFile("../src/image/Mario.png");
     _marioSprite.setTexture(_marioTexture);
+    
     _marioSprite.setPosition(30, 200);
     _marioSprite.setScale(sf::Vector2f(3,3));
     _marioPos = _marioSprite.getPosition();
@@ -42,6 +43,7 @@ void Mario::UpdateMario(Map& map){
         }
         else{
             if(!_marioBound.intersects(map.mapBound)) {
+                
                 _marioPos.y += _marioJumpHeight;
             }
         }
