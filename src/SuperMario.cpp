@@ -96,13 +96,10 @@ int main()
             for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
                 koopas[i].drawKoopa(window);
                 koopas[i].Move(map);
+//                koopas[i].JumpedOnTop(mario);
                 goombas[i].drawGoomba(window);
                 goombas[i].Move(map);
             }
-            
-            //        koopa.JumpedOnTop(mario);
-            //        goomba.JumpedOnTop(mario);
-            
             score.drawScores(window);
             
             if (timesRumming>=500) {
@@ -114,7 +111,7 @@ int main()
             }
             for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
                 score.update(koopas[i],goombas[i],mario);
-                mario.GameOver(goombas[i],koopas[i]);
+//                mario.GameOver(goombas[i],koopas[i]);
             }
             score.drawScores(window);
             timesRumming++;
