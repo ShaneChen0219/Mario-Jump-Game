@@ -44,3 +44,20 @@ void Goomba::JumpedOnTop(Mario& mario){
         }
     };
 
+void Goomba::Move(Map& map){
+    if (_goombaBound.intersects(map.mapBound)) {
+        if (_goombaPos.x>30 and _return ==false) {
+            _return = false;
+            _goombaPos.x -=0.5f;
+        }else{
+            _return = true;
+            _goombaPos.x += 0.5f;
+            if (_goombaPos.x ==screenWidth-100 and _return == true) {
+                _return = false;
+                _goombaPos.x -=0.5f;
+            }
+        }
+        
+    }
+    _goombaSprite.setPosition(_goombaPos);
+};

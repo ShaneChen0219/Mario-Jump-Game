@@ -22,6 +22,7 @@ private:
     sf :: Texture _goombaTexture;
     float _goombaSpeed =2.0f;
     bool _isJumped=0;
+    bool _return = 0;
 public:
     Goomba();
     void drawGoomba(sf::RenderWindow& window);
@@ -29,6 +30,6 @@ public:
     sf::Vector2f _goombaPos{0.f, 0.f};
     sf::FloatRect _goombaBound;
     void JumpedOnTop(Mario& mario);
-    
+    void Move(Map& map);
 };
 #endif /* Goomba_hpp */

@@ -12,6 +12,7 @@
 #include "Globle.hpp"
 #include "Mario.hpp"
 #include "Map.hpp"
+
 class Map;
 class Mario;
 class Koopa{
@@ -20,15 +21,17 @@ private:
     sf::Sprite _koopaSprite;
     sf::Texture _koopaTexture;
     bool _isJumped=0;
+    bool _return = 0;
     float _koopaSpeed =2.0f;
 public:
     Koopa();
+    Koopa(int pos);
     void drawKoopa(sf::RenderWindow& window);
     void UpdateKoopa(Map& map);
     sf::Vector2f _koopaPos{0.f, 0.f};
     sf::FloatRect _koopaBound;
     void JumpedOnTop(Mario& mario);
-    void Move();
+    void Move(Map& map);
 };
     
     

@@ -9,10 +9,14 @@
 #define Globle_hpp
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 //For the Window
 const unsigned char cellSize = 16;
 const unsigned short screenHeight =500;
 const unsigned short screenWidth =1000;
 const unsigned short groundOffset = screenHeight - 50.0f;
 const int gameSpeed = 8;
+
+
 #endif /* Globle_hpp */
