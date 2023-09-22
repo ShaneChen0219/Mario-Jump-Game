@@ -23,6 +23,12 @@ int main()
     sf::Event event;
     sf::Time deltaTime;
     sf::Clock deltaTimeClock;
+    //For random number
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<int> distributionForPos(100, 800);
+    std::uniform_int_distribution<int> distributionForSpeed(1, 5);
+    
     
     Renderer renderer(window);
     Map map;
@@ -30,14 +36,13 @@ int main()
     GameClock gameclock;
     
     //    Generate koopas
-    int pos = rand()%800 +100;
-    float speed = rand()%5 +1;
+    int pos = distributionForPos(generator);
+    float speed = distributionForSpeed(generator);
     int numOfKoopaAndGoomba =2;
     std::vector<Koopa> koopas;
     for(int i= 0; i<numOfKoopaAndGoomba;i++){
-        srand(i+speed+123456);
-        pos = rand()%800 +100;
-        speed = (rand()% 5000 +1000)/1000;
+        pos = distributionForPos(generator);
+        speed = distributionForSpeed(generator);
         Koopa koopa_obj(pos,speed);
         koopas.push_back(koopa_obj);
     }
@@ -45,9 +50,8 @@ int main()
     Koopa any;
     std::vector<Goomba> goombas;
     for(int i= 0; i<numOfKoopaAndGoomba;i++){
-        srand(i+speed+123456);
-        pos = rand()%800 +100;
-        speed = (rand()% 5000 +1000)/1000;
+        pos = distributionForPos(generator);
+        speed = distributionForSpeed(generator);
         Goomba goombas_obj(pos,speed);
         goombas.push_back(goombas_obj);
         
