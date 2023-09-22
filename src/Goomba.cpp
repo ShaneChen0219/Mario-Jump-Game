@@ -73,12 +73,6 @@ void Goomba::drawGoomba(sf::RenderWindow& window) {
 };
     
 
-void Goomba::JumpedOnTop(Mario& mario){
-//        if(_goombaBound.intersects(mario._marioBound)&&((mario._marioBound.top+mario._marioBound.height)>=_goombaBound.top)&& (mario._marioBound.left<=(_goombaBound.left+_goombaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_goombaBound.left) {
-//            _isJumped = true;
-//        }
-    };
-
 void Goomba::Move(Map& map){
     _goombaBound = _goombaSprite.getGlobalBounds();
     if (_goombaBound.intersects(map.mapBound)) {

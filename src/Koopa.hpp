@@ -17,10 +17,6 @@ class Map;
 class Mario;
 class Koopa{
 private:
-    //standard sfml library
-    
-    
-    
     bool _return = 0;
     float _koopaSpeed =0.1f;
 public:
@@ -32,7 +28,6 @@ public:
     void drawKoopa(sf::RenderWindow& window);
     sf::Vector2f _koopaPos;
     sf::FloatRect _koopaBound;
-    void JumpedOnTop(Mario& mario);
     void Move(Map& map);
     bool _isJumped=0;
     void reset();

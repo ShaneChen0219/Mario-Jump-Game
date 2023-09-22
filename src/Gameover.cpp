@@ -19,3 +19,4 @@ GameOver::GameOver(){
 void GameOver::drawGameOver(sf::RenderWindow& window){
     window.draw(_gameOverSprite);
 };
+

@@ -19,5 +19,6 @@ public:
     GameOver();
     sf::Vector2f _gameoverPos{0.f,0.f};
     void drawGameOver(sf::RenderWindow& window);
+
 };
 #endif /* Gameover_hpp */

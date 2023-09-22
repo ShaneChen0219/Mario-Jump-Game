@@ -30,7 +30,6 @@ public:
     void drawGoomba(sf::RenderWindow& window);
     sf::Vector2f _goombaPos;
     sf::FloatRect _goombaBound;
-    void JumpedOnTop(Mario& mario);
     void Move(Map& map);
     bool _isJumped=0;
     void reset();

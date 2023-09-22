@@ -60,6 +60,7 @@ int main()
     Goomba any2;
     GameOver gameover;
     Score score;
+    bool startGame = true;
     int timesRumming =0;
     // run the program as long as the window is open
     while (window.isOpen())
@@ -69,46 +70,49 @@ int main()
         while (window.pollEvent(event))
         {
             // "close requested" event: we close the window
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed){
                 window.close();
+            }
         }
         deltaTime = deltaTimeClock.restart();
         
         window.clear(sf::Color::White);
-        if(mario._isalive ==true){
-            
-            map.drawMap(renderer);
-            mario.UpdateMario(map);
-            mario.drawMario(window);
-            gameclock.drawClock(window);
-            gameclock.update();
-            
-            for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
-                koopas[i].drawKoopa(window);
-                koopas[i].Move(map);
-                goombas[i].drawGoomba(window);
-                goombas[i].Move(map);
-            }
-            score.drawScores(window);
-            
-            if (timesRumming>=500) {
+        
+            if(mario._isalive ==true){
+                map.drawMap(renderer);
+                mario.UpdateMario(map);
+                mario.drawMario(window);
+                gameclock.drawClock(window);
+                gameclock.update();
+                
                 for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
-                    koopas[i].reset();
-                    goombas[i].reset();
+                    koopas[i].drawKoopa(window);
+                    koopas[i].Move(map);
+                    goombas[i].drawGoomba(window);
+                    goombas[i].Move(map);
                 }
-                timesRumming=0;
+                score.drawScores(window);
+                
+                if (timesRumming>=500) {
+                    for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
+                        koopas[i].reset();
+                        goombas[i].reset();
+                    }
+                    timesRumming=0;
+                }
+                for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
+                    score.update(koopas[i],goombas[i],mario);
+                    mario.GameOver(goombas[i],koopas[i]);
+                }
+                score.drawScores(window);
+                timesRumming++;
+                
+            }else{
+                gameover.drawGameOver(window);
+                score.drawScores(window);
+                startGame = false;
             }
-            for (int i = 0; i<numOfKoopaAndGoomba ;i++) {
-                score.update(koopas[i],goombas[i],mario);
-                mario.GameOver(goombas[i],koopas[i]);
-            }
-            score.drawScores(window);
-            timesRumming++;
-            
-        }else{
-            gameover.drawGameOver(window);
-            score.drawScores(window);
-        }
+        
         // end the current frame
         window.display();
     }

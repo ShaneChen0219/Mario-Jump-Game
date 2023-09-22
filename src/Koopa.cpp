@@ -68,12 +68,6 @@ void Koopa::drawKoopa(sf::RenderWindow& window){
 };
 
 
-void Koopa::JumpedOnTop(Mario& mario){
-    //(mario._marioBound.top +mario._marioBound.height)>=_koopaBound.top
-        if ( _koopaBound.intersects(mario._marioBound)&&  (mario._marioBound.left<=(_koopaBound.left+_koopaBound.width))&&(mario._marioBound.left+mario._marioBound.width)>=_koopaBound.left) {
-            _isJumped = true;
-        }
-};
 void Koopa::Move(Map& map){
     _koopaBound = _koopaSprite.getGlobalBounds();
     if (_koopaBound.intersects(map.mapBound)) {
