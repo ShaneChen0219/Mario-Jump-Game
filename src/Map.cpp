@@ -24,17 +24,6 @@ mapSprite(),mapTexture()
         mapSprite.setScale(5, 10);
         mapSprite.setPosition(sf::Vector2f(0,350));
 };
-void Map::updateMap(){
-    if(offset > mapTexture.getSize().x - screenWidth){
-        offset = 0;
-    }
-    offset += gameSpeed;
-    mapSprite.setTextureRect(sf::IntRect(offset,0,screenWidth,screenHeight));
-};
-void Map::resetMap(){
-    offset = 0;
-    mapSprite.setTextureRect(sf::IntRect(0,0,screenWidth,screenHeight));
-};
 // The drawMap method belongs to the map class: the function will initialize our mapTexture variables  and by using the loadFromFile method we will call image files for those texture variables
 void Map::drawMap(Renderer& renderer){
     sf::Texture mapTexture1;
