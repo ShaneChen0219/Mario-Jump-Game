@@ -54,13 +54,11 @@ int main()
         speed = distributionForSpeed(generator);
         Goomba goombas_obj(pos,speed);
         goombas.push_back(goombas_obj);
-        
     }
     //only for making the image right
     Goomba any2;
     GameOver gameover;
     Score score;
-    bool startGame = true;
     int timesRumming =0;
     // run the program as long as the window is open
     while (window.isOpen())
@@ -106,13 +104,10 @@ int main()
                 }
                 score.drawScores(window);
                 timesRumming++;
-                
             }else{
                 gameover.drawGameOver(window);
                 score.drawScores(window);
-                startGame = false;
             }
-        
         // end the current frame
         window.display();
     }

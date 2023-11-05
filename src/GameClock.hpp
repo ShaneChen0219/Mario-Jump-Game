@@ -30,7 +30,7 @@ public:
     
 private:
     sf::Clock clock;
-    short timeLeft = 60;
+    short timeLeft = 500;
 };
     
 #endif /* GameClock_hpp */
